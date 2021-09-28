@@ -55,33 +55,10 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
         //       isBlocked = _isBlocked;
         //       isGhosted = _isGhosted;
 
-        ////experience = 0.0;  //samma på alla häxor
-        //      //  spellSlots = 3;   //samma på alla häxor
+       
 
-        //        Count++;
-        //    }
+   
 
-    //public void CastSpell() // metod för spells
-    //{
-    //    if (spellSlots > 0)
-    //    {
-    //        Console.WriteLine(name + " casts " + favouriteSpell);
-    //        spellSlots--;
-    //        experience += 0.1;
-    //    }
-    //    else
-    //    {
-    //        Console.WriteLine(name + " doesn't have enough energy to cast a spell! She should rest for a while...");
-    //    }
-
-    //}
-
-    //public void RegainSpellSlots()  // metod för rest
-    //{
-    //    Console.WriteLine(name + " rests to regain energy for spells...");
-    //    spellSlots += 2;
-    //    Console.WriteLine(name + " now has " + spellSlots + " spellslots to use!");
-    //}
 }
     }
 

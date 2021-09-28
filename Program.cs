@@ -7,7 +7,11 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
     {
         static void Main(string[] args)
         {
-            Start(); //anropa startmetoden
+            while(true) //???
+            {
+                menu(); //anropa startmetoden
+            }
+
 
             List<People> peopleList = new List<People>();
             peopleList.Add(new People());
@@ -17,7 +21,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             Console.ReadKey();
         }
 
-        static void Start() //startmetod
+        static void menu() //menymetod?? while???
         {
             Console.WriteLine("meny");
             Console.WriteLine("1- skapa");
@@ -26,12 +30,44 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             Console.WriteLine("4- ta bort profil");
             Console.WriteLine("5- lista alla");
             Console.WriteLine("6- lista alla som börjar på spec. bokstav");
-            string userInput = Console.ReadLine();  //int eller string??
+            string userInput;
+            int userInputInt;
+            bool isUserInputInt;
+
+            userInput = Console.ReadLine();
+            int.TryParse(userInput, out userInputInt); 
+
+            if (!isUserInputInt)
+            {
+                Console.WriteLine("Välj ett alternativ mellan 1-6 från menyn!");
+               // continue;   ??
+            }
+
 
             //switch
-            switch (switch_on)
+            switch (userInputInt)
             {
+                case 1:
+                    // skapa profil
+                    break;
+                case 2:
+                    //läsa andra profiler
+                    break;
+                case 3:
+                    // ändra i min egen profil
+                    break;
+                case 4:
+                    // ta bort min profil
+                    break;
+                case 5:
+                    // lista alla profiler
+                    break;
+                case 6:
+                    //lista alla profiler som börjar på en spec. bokstav
+                    break;
+               
                 default:
+                    break;
             }
         }
     }
