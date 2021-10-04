@@ -12,7 +12,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
         public string lastName;
         public string alias;
         public string email;
-        public string linkedIn;  //jo?
+        public string linkedIn;  
         public string facebook;
         public string instagram;
         public string twitter;
