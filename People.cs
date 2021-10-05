@@ -6,50 +6,58 @@ using System.Threading.Tasks;
 
 namespace ChatUp_Kontaktlista_Josefin_Persson
 {
-    class People
+    class People //class som skapar enskilda kontakt-objekt
     {
-        public string name; // public eftersom de ska kunnas ändras utanför klassen, i main...
-        public string lastName;
-        public string alias;
-        public string email;
-        public string linkedIn;  
-        public string facebook;
-        public string instagram;
-        public string twitter;
-        public string github;
-        public string favFood;
-        public string leastFavFood;
-        public string favAnimal;
-        public string favMovieGenre;
-        public bool isBlocked = false;   //private?
-        public bool isGhosted = false;    //private?
+        public string Name; // public eftersom de ska kunnas ändras utanför klassen, i main...      PASCAL CASE
+        public string LastName;
+        public string Alias;
+        public string Email;
+        public string LinkedIn;  
+        public string Facebook;
+        public string Instagram;
+        public string Twitter;
+        public string Github;
+        public string FavFood;
+        public string LeastFavFood;
+        public string FavAnimal;
+        public string FavMovieGenre;
+        public bool IsBlocked = false;   //private?
+        public bool IsGhosted = false;    //private?
+
         //  public int age;   inte ett måste, lägg till senare...  födelsedagar osv..... timedate??
 
-        public People(string _name, string _lastName, string _alias, string _email, string _linkedIn, string _facebook, string _instagram, string _twitter, string _github, string _favFood, string _leastFavFood, string _favAnimal, string _favMovieGenre, bool _isBlocked, bool _isGhosted) // constructor...
-                {   
-                   name = _name;
-                   lastName= _lastName;
-                   alias = _alias;
-                   email = _email;
-                   linkedIn = _linkedIn;
-                   facebook = _facebook; 
-                   instagram = _instagram;
-                   twitter = _twitter;
-                   github = _github; 
-                   favFood= _favFood;
-                   leastFavFood = _leastFavFood;
-                   favAnimal = _favAnimal; 
-                   favMovieGenre = _favMovieGenre;
-                   isBlocked = _isBlocked;
-                   isGhosted = _isGhosted;
+        public People() // en tom constructor... så att man ska kunna skapa komma kontakter.... men kontakter med kanske bara tre olika attrubut? skapa massa constructors?!?!
+        {
+            //tomt
         }
 
-    public string getData()
+        // constructor! alla värden sätts till default?
+        public People(string name, string lastName, string alias, string email, string linkedIn, string facebook, string instagram, string twitter, string github, string favFood, string leastFavFood, string favAnimal, string favMovieGenre, bool isBlocked, bool isGhosted)
+                {   
+            this.Name = name;                   // this. används i constructorn för att syfta på objektet???          CAMEL CASE
+            this.LastName = lastName;
+            this.Alias = alias;
+            this.Email = email;
+            this.LinkedIn = linkedIn;
+            this.Facebook = facebook;
+            this.Instagram = instagram;
+            this.Twitter = twitter;
+            this.Github = github;
+            this.FavFood = favFood;
+            this.LeastFavFood = leastFavFood;
+            this.FavAnimal = favAnimal;
+            this.FavMovieGenre = favMovieGenre;
+            this.IsBlocked = isBlocked;
+            this.IsGhosted = isGhosted;
+        }
+
+    public string getData()  // metod för att hämta och prestentera data om kontakten
         {
-            return "Namn: " + this.name + " Efternamn: " + this.lastName + " Alias: " + this.alias + " Email: " + this.email + " LinkedIn: " + this.linkedIn
-            + " Facebook: " + this.facebook + " Instagram: " + this.instagram + " Twitter: " + this.twitter + " Github: " + this.github
-             + " Favoritmat: " + this.favFood + " Avskymat: " + this.leastFavFood + " Favoritdjur: " + this.favAnimal + " Favorit-filmgenre: " + this.favMovieGenre
-             + " Blockad av dig?: " + this.isBlocked + " Ghostad av dig? : " + isGhosted;
+            return "data om kontakten";
+            //return "Namn: " + this.name + " Efternamn: " + this.lastName + " Alias: " + this.alias + " Email: " + this.email + " LinkedIn: " + this.linkedIn
+            //+ " Facebook: " + this.facebook + " Instagram: " + this.instagram + " Twitter: " + this.twitter + " Github: " + this.github
+            // + " Favoritmat: " + this.favFood + " Avskymat: " + this.leastFavFood + " Favoritdjur: " + this.favAnimal + " Favorit-filmgenre: " + this.favMovieGenre
+            // + " Blockad av dig?: " + this.isBlocked + " Ghostad av dig? : " + isGhosted;
 
         }
 

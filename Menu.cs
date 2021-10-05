@@ -6,34 +6,34 @@ using System.Threading.Tasks;
 
 namespace ChatUp_Kontaktlista_Josefin_Persson
 {
-    class Menu
+    class Menu  //class
     {
 
-        public Menu()
+        public Menu()   //constructor, behövs i ALLA klasser. ok att den är tom...
         {
-
+            // innhehåller inget
         }
 
-        public void RunMenu(ContactList contactList) //menymetod?? while???
+        public void RunMenu(ContactList contactList) // menymetod som tar info från en ContactList kallad contactList...
         {
-            Console.WriteLine("meny");
-            Console.WriteLine("1- skapa");
-            Console.WriteLine("2- läsa andra profiler");
-            Console.WriteLine("3-uppdatera min profil");
-            Console.WriteLine("4- ta bort profil");
-            Console.WriteLine("5- lista alla");
-            Console.WriteLine("6- lista alla som börjar på spec. bokstav");
-            string userInput;
+            Console.WriteLine("Meny");
+            Console.WriteLine("1- Skapa ny kontakt");
+            Console.WriteLine("2- Visa kontakt...?");
+            Console.WriteLine("3- Uppdatera kontakt");
+            Console.WriteLine("4- Ta bort kontakt");
+            Console.WriteLine("5- Lista med alla kontakter");
+            Console.WriteLine("6- Lista alla som börjar på spec. bokstav");
+            string userInput;  
             int userInputInt;
-            bool isUserInputInt = false;
+            bool isUserInputInt = false;     // false by default?
 
-            userInput = Console.ReadLine();
+            userInput = Console.ReadLine();  // ta input och parsa den
             int.TryParse(userInput, out userInputInt);
 
-            if (!isUserInputInt)
+            if (!isUserInputInt)  //om det är sant att input INTE är en int
             {
                 Console.WriteLine("Välj ett alternativ mellan 1-6 från menyn!");
-                // continue;   ??
+                // continue;         ????????
             }
 
 
@@ -41,22 +41,28 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             switch (userInputInt)
             {
                 case 1:
-                    // skapa profil
+                    // skapa kontakt
+                    // anropa metoder från contactlist...
+                    contactList.Create();
                     break;
                 case 2:
-                    //läsa andra profiler
+                    //öppna kontakter
+                    contactList.Read();
                     break;
                 case 3:
-                    // ändra i min egen profil
+                    // redigera kontakter
+                    contactList.Update();
                     break;
                 case 4:
-                    // ta bort min profil
+                    // ta bort kontakt
+                    contactList.Delete();
                     break;
                 case 5:
-                    // lista alla profiler
+                    // lista alla kontakter
+
                     break;
                 case 6:
-                    //lista alla profiler som börjar på en spec. bokstav
+                    //lista alla kontakter som börjar på en spec. bokstav
                     break;
 
                 default:
