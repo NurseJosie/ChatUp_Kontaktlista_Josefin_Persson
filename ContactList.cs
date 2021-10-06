@@ -64,19 +64,55 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             Console.WriteLine("Ange favorit-filmgenre:");
             newPerson.FavMovieGenre = Console.ReadLine();
 
-            Console.WriteLine("Ange om du vill blocka denna kontakt. Svara med ja eller nej:");
-            // newPerson.IsBlocked = Console.ReadLine();                                                         ?????
+            Console.WriteLine("Ange om du vill blocka denna kontakt. Svara med ja eller nej:");            // TODO: nej eller felsvar...
+            string inputIsBlockedString = Console.ReadLine();
+            newPerson.IsBlocked = false;
+            if(inputIsBlockedString == "ja")
+            {
+                newPerson.IsBlocked = true;
+            }
 
-            Console.WriteLine("Ange om du vill ghosta denna kontakt. Svara med ja eller nej:");
-            // newPerson.IsGhosted = Console.ReadLine();                                                           ??????
+            Console.WriteLine("Ange om du vill ghosta denna kontakt. Svara med ja eller nej:");      // TODO: nej eller felsvar...
+            string inputIsGhostedString = Console.ReadLine();
+            newPerson.IsGhosted = false;
+            if (inputIsGhostedString == "ja")
+            {
+                newPerson.IsGhosted = true;
+            }
 
-            contactList.Add(newPerson);
+            contactList.Add(newPerson);  // lägg till den nya personen i kontaktlistan
 
             // återvänder automatiskt till menyn
         }
 
         public string Read()  //öppna kontakt.... lista???
         {
+            //lista på alla alias...
+            foreach (var alias in contactList)   //????????????
+            {
+                contactList.Sort(alias);  //???
+                Console.WriteLine(alias);
+            }
+
+            Console.WriteLine("Ange alias på den du vill visa:");
+            string userInputAlias = Console.ReadLine();
+
+            if(userInputAlias == contactList.alias[])
+            {
+                Console.WriteLine(contactList)
+            }
+
+            //indexOf
+
+            int idx = contactList.IndexOf(userInputAlias);
+            if (idx > 0)
+                Console.WriteLine(idx);
+            else
+                Console.WriteLine("Detta alias kan ej hittas i din kontaktlista.");
+
+            // binary search....???                            alt. FindIndex....
+            int bs = contactList.BinarySearch(userInputAlias);
+
             string returnString = "";
             return returnString;
 
@@ -92,12 +128,29 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
         public void Delete() // ta bort en av dina kontakter
         {
             //välj vilken kontakt som ska tas bort, ta bort...
+            foreach(string person in contactList)
+            {
+                Console.WriteLine(person);                     // ange en siffra? ange alias?? hur??
+            }
+            Console.WriteLine("Ange den du önskar ta bort från din kontaktlista... Var personen inte bra nog för dig? Du förtjänar en drömprins!!! Du kan även välja att ta bort alla kontakter...");
+            string userInputDelete = Console.ReadLine();
+
+            contactList.Remove(userInputDelete);   // alt. RemoveAt(index)
+
+            //ta bort alla kontakter
+            if(userInputDelete == "alla")
+            {
+                contactList.Clear();
+            }
+
             // återvänd till menyn
         }
 
         public void List() // lista alla kontakter, lista kontakter som börjar på en specifik bokstav
         {
             // foreach och cw listan
+
+            Console.WriteLine("Din kontaktlista består av " + contactList.Count() + " kontakter. Någon av de alla borde väl kunna duga...?"); // visa hur många som finns i kontaktlistan
 
             //fråga om bokstav, kolla att det är en bokstav, foreach alla med den bokstaven och cw...????
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;  //kopierade in för säkerhets skull 
 
 namespace ChatUp_Kontaktlista_Josefin_Persson
 {
@@ -14,7 +15,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                 menu.RunMenu(contactListObject); //anropa startmetoden som ska använda sig av listan med kontakter
             }
 
-            Console.ReadKey();  // för att hålla uppe konsollrutan, ta bort?
+            Console.ReadKey();  // för att hålla uppe konsollrutan, ................ta bort?
         }
     }
 }
