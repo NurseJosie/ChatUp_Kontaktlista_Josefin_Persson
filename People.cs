@@ -8,20 +8,21 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
 {
     class People //class som skapar enskilda kontakt-objekt
     {
-        public string Name; // public eftersom de ska kunnas ändras utanför klassen, i main...      PASCAL CASE
-        public string LastName;
-        public string Alias;
-        public string Email;
-        public string LinkedIn;  
-        public string Facebook;
-        public string Instagram;
-        public string Twitter;
-        public string Github;
-        public string FavFood;
-        public string LeastFavFood;
-        public string FavAnimal;
-        public string FavMovieGenre;
-        public bool IsBlocked = false;   //private?
+        public string Name { get; set; }     //   VARFÖR GET; SET; ????!    public eftersom de ska kunnas ändras utanför klassen, i main...      PASCAL CASE
+        public string LastName { get; set; }
+        public string Alias { get; set; } 
+        public string Email { get; set; }
+        public string LinkedIn { get; set; }
+        public string Facebook { get; set; }
+        public string Instagram { get; set; }
+        public string Twitter { get; set; }
+        public string Github { get; set; }
+        public string FavFood { get; set; }
+        public string LeastFavFood { get; set; }
+        public string FavAnimal { get; set; }
+        public string FavMovieGenre { get; set; }
+
+        public bool IsBlocked = false;   //private?              // get; set; ????
         public bool IsGhosted = false;    //private?
 
         //  public int age;   inte ett måste, lägg till senare...  födelsedagar osv..... timedate??

@@ -14,6 +14,15 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
         public ContactList() // constructor
         {
             contactList = new List<People>(); // gör en tom kontaktlista 
+            People testPerson1 = new People();
+            contactList.Add(testPerson1);
+
+            //People testPerson1 = new People();
+            //contactList.Add(testPerson1);
+
+            //People testPerson1 = new People();
+            //contactList.Add(testPerson1);
+
         }
 
 
@@ -85,36 +94,46 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             // återvänder automatiskt till menyn
         }
 
-        public string Read()  //öppna kontakt.... lista???
+        public void Read()  //öppna kontakt.... lista???
         {
             //lista på alla alias...
-            foreach (var alias in contactList)   //????????????
+            foreach (var person in contactList)   //????????????
             {
-                contactList.Sort(alias);  //???
-                Console.WriteLine(alias);
+               // contactList.Sort(alias);  //???
+                Console.WriteLine(person);
             }
 
             Console.WriteLine("Ange alias på den du vill visa:");
             string userInputAlias = Console.ReadLine();
 
-            if(userInputAlias == contactList.alias[])
+
+
+            foreach (var person in contactList)   //????????????
             {
-                Console.WriteLine(contactList)
+                // contactList.Sort(alias);  //???
+                if (userInputAlias == person.Alias)
+                {
+                    Console.WriteLine("Namn: " + person.Name);
+                    Console.WriteLine("Efternamn: " + person.LastName);
+                    Console.WriteLine("Alias: " + person.Alias);
+                    Console.WriteLine("Email: " + person.Email);
+                    //Console.WriteLine("Alias: " + person.Alias);
+                    //Console.WriteLine("Alias: " + person.Alias);
+                    //Console.WriteLine("Alias: " + person.Alias);
+                    //Console.WriteLine("Alias: " + person.Alias);
+                    //Console.WriteLine("Alias: " + person.Alias);
+                    //Console.WriteLine("Alias: " + person.Alias);
+                    //Console.WriteLine("Alias: " + person.Alias);
+                    //Console.WriteLine("Alias: " + person.Alias);
+                    //Console.WriteLine("Alias: " + person.Alias);
+                    //Console.WriteLine("Alias: " + person.Alias);
+                    //Console.WriteLine("Alias: " + person.Alias);
+                    //Console.WriteLine("Alias: " + person.Alias);
+                    //Console.WriteLine("Alias: " + person.Alias);
+                    //Console.WriteLine("Alias: " + person.Alias);
+
+                }
             }
-
-            //indexOf
-
-            int idx = contactList.IndexOf(userInputAlias);
-            if (idx > 0)
-                Console.WriteLine(idx);
-            else
-                Console.WriteLine("Detta alias kan ej hittas i din kontaktlista.");
-
-            // binary search....???                            alt. FindIndex....
-            int bs = contactList.BinarySearch(userInputAlias);
-
-            string returnString = "";
-            return returnString;
 
             // återvänd till menyn
         }
@@ -128,14 +147,16 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
         public void Delete() // ta bort en av dina kontakter
         {
             //välj vilken kontakt som ska tas bort, ta bort...
-            foreach(string person in contactList)
+            foreach(People person in contactList)
             {
                 Console.WriteLine(person);                     // ange en siffra? ange alias?? hur??
             }
             Console.WriteLine("Ange den du önskar ta bort från din kontaktlista... Var personen inte bra nog för dig? Du förtjänar en drömprins!!! Du kan även välja att ta bort alla kontakter...");
             string userInputDelete = Console.ReadLine();
 
-            contactList.Remove(userInputDelete);   // alt. RemoveAt(index)
+
+
+            //contactList.Remove(userInputDelete);   // alt. RemoveAt(index) rätt men ska ta int
 
             //ta bort alla kontakter
             if(userInputDelete == "alla")
