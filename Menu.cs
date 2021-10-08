@@ -16,9 +16,9 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
 
         public void RunMenu(ContactList contactList) // menymetod som tar info från en ContactList kallad contactList...
         {
-            Console.WriteLine("----------");
-            Console.WriteLine("---Meny---");
-            Console.WriteLine("----------");
+            Console.WriteLine("|----------|");
+            Console.WriteLine("|---Meny---|");
+            Console.WriteLine("|----------|");
             Console.WriteLine("Välj ett alternativ genom att ange dess nummer.");
             Console.WriteLine("1- Skapa ny kontakt");
             Console.WriteLine("2- Visa kontakt");

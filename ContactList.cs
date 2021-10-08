@@ -14,19 +14,19 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
         public ContactList() // constructor
         {
             contactList = new List<People>(); // gör en tom kontaktlista 
-            People testPerson1 = new People();
+            People testPerson1 = new People("John", "Snow", "BastardBoi", "snow_01@gmail.com", "John S Harington", "John Snow Targaryen", "MrSnowyBastard01", "MrSnowyAtTheNightWatchTweets", "CoderOfTheWall", "Pannkakor", "Selleri", "En söt liten vargunge", "Romans", false, false);
             contactList.Add(testPerson1);
 
-            //People testPerson1 = new People();
-            //contactList.Add(testPerson1);
+            People testPerson2 = new People("Henry", "Cavill", "ButcherOfBlaviken", "superman_ur_hero@live.se", "HenryCavill", "Henry Kent of Rivia", "PicsOfDoggiesAndMeLiftingStuff", "WitcherWithWitt", "SuperCoderManOfRivia", "Vad som helst med PROTEIN till mina muskler", "Leverpastej", "Hund", "Action", false, true);
+            contactList.Add(testPerson2);
 
-            //People testPerson1 = new People();
-            //contactList.Add(testPerson1);
+            People testPerson3 = new People("Jason", "Momoa", "MySunAndStars", "khal_momoa@fishmail.com", "Arthur J Momoa", "Jason Momoa f.d. Curry", "FishManPhotos", "DrogoFunnyTweets", "ProgoDrogo", "Pizza", "Fisk", "Hästar och fiskar", "Skräckis", true, false);
+            contactList.Add(testPerson3);
 
         }
 
-
-        //CRUDL metoder som anropas i menu
+        
+        //-----------------------------CRUDL metoder som anropas i menu-------------------------------------
 
         public void Create()  // lägg till ny kontakt
         {
@@ -73,7 +73,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             Console.WriteLine("Ange favorit-filmgenre:");
             newPerson.FavMovieGenre = Console.ReadLine();
 
-            Console.WriteLine("Ange om du vill blocka denna kontakt. Svara med ja eller nej:");            // TODO: nej eller felsvar...
+            Console.WriteLine("Ange om du vill blocka denna kontakt. Svara med 'ja' eller 'nej':");            // TODO: nej eller felsvar...
             string inputIsBlockedString = Console.ReadLine();
             newPerson.IsBlocked = false;
             if(inputIsBlockedString == "ja")
@@ -81,7 +81,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                 newPerson.IsBlocked = true;
             }
 
-            Console.WriteLine("Ange om du vill ghosta denna kontakt. Svara med ja eller nej:");      // TODO: nej eller felsvar...
+            Console.WriteLine("Ange om du vill ghosta denna kontakt. Svara med 'ja' eller 'nej':");      // TODO: nej eller felsvar...
             string inputIsGhostedString = Console.ReadLine();
             newPerson.IsGhosted = false;
             if (inputIsGhostedString == "ja")
@@ -89,11 +89,11 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                 newPerson.IsGhosted = true;
             }
 
-            contactList.Add(newPerson);  // lägg till den nya personen i kontaktlistan
+            contactList.Add(newPerson);  // lägg till den nya personen i kontaktlistan                                                 FUNKAR EJ
 
             // återvänder automatiskt till menyn
         }
-
+        //-----------------------------------------------------------------------------------------------------------
         public void Read()  //öppna kontakt.... lista???
         {
             //lista på alla alias...
@@ -117,56 +117,65 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                     Console.WriteLine("Efternamn: " + person.LastName);
                     Console.WriteLine("Alias: " + person.Alias);
                     Console.WriteLine("Email: " + person.Email);
-                    //Console.WriteLine("Alias: " + person.Alias);
-                    //Console.WriteLine("Alias: " + person.Alias);
-                    //Console.WriteLine("Alias: " + person.Alias);
-                    //Console.WriteLine("Alias: " + person.Alias);
-                    //Console.WriteLine("Alias: " + person.Alias);
-                    //Console.WriteLine("Alias: " + person.Alias);
-                    //Console.WriteLine("Alias: " + person.Alias);
-                    //Console.WriteLine("Alias: " + person.Alias);
-                    //Console.WriteLine("Alias: " + person.Alias);
-                    //Console.WriteLine("Alias: " + person.Alias);
-                    //Console.WriteLine("Alias: " + person.Alias);
-                    //Console.WriteLine("Alias: " + person.Alias);
-                    //Console.WriteLine("Alias: " + person.Alias);
-                    //Console.WriteLine("Alias: " + person.Alias);
+                    Console.WriteLine("LinkedIn: " + person.LinkedIn);
+                    Console.WriteLine("Facebook: " + person.Facebook);
+                    Console.WriteLine("Instagram: " + person.Instagram);
+                    Console.WriteLine("Twitter: " + person.Twitter);
+                    Console.WriteLine("Github: " + person.Github);
+                    Console.WriteLine("Favoritmat: " + person.FavFood);
+                    Console.WriteLine("Avsky-mat: " + person.LeastFavFood);
+                    Console.WriteLine("Favoritdjur: " + person.FavAnimal);
+                    Console.WriteLine("Favorit-filmgenre: " + person.FavMovieGenre);
+                    Console.WriteLine("Blockad: " + person.IsBlocked);
+                    Console.WriteLine("Ghostad: " + person.IsGhosted);
 
-                }
+                  }
             }
 
             // återvänd till menyn
         }
-
+        //-----------------------------------------------------------------------------------------------------------
         public void Update() // uppdatera infon i en av dina kontakter
         {
             //välj vilken kontakt, välj vad som ska uppdateras, skriv in och uppdatera...
+            //lista på alla alias...
+            foreach (var person in contactList)   //????????????
+            {
+                // contactList.Sort(alias);  //???
+                Console.WriteLine(person);
+            }
+
+            Console.WriteLine("Ange alias på den du vill uppdatera:");
+            string userInputAlias = Console.ReadLine();                            // userInputAlias... behöver man byta namn när den återanvänds i en annan metod?
+
+
+
             // återvänd till menyn
         }
-
+        //-----------------------------------------------------------------------------------------------------------
         public void Delete() // ta bort en av dina kontakter
         {
             //välj vilken kontakt som ska tas bort, ta bort...
-            foreach(People person in contactList)
+            foreach (var person in contactList)   //????????????
             {
-                Console.WriteLine(person);                     // ange en siffra? ange alias?? hur??
+                // contactList.Sort(alias);  //???
+                Console.WriteLine(person);
             }
-            Console.WriteLine("Ange den du önskar ta bort från din kontaktlista... Var personen inte bra nog för dig? Du förtjänar en drömprins!!! Du kan även välja att ta bort alla kontakter...");
-            string userInputDelete = Console.ReadLine();
 
+            Console.WriteLine("Ange alias på den du önskar ta bort från din kontaktlista... Var personen inte bra nog? Du förtjänar en drömprins!!! Du kan även välja att ta bort 'alla' kontakter...");
+            string userInputAlias = Console.ReadLine();
 
-
-            //contactList.Remove(userInputDelete);   // alt. RemoveAt(index) rätt men ska ta int
+            contactList.Remove(userInputAlias);   // alt. RemoveAt(index) rätt men ska ta int
 
             //ta bort alla kontakter
-            if(userInputDelete == "alla")
+            if (userInputDelete == "alla")
             {
                 contactList.Clear();
             }
 
             // återvänd till menyn
         }
-
+        //-----------------------------------------------------------------------------------------------------------
         public void List() // lista alla kontakter, lista kontakter som börjar på en specifik bokstav
         {
             // foreach och cw listan
@@ -177,6 +186,6 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
 
             // återvänd till menyn
         }
-
+        //-----------------------------------------------------------------------------------------------------------
     }
 }

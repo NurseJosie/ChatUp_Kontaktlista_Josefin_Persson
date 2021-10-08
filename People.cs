@@ -8,7 +8,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
 {
     class People //class som skapar enskilda kontakt-objekt
     {
-        public string Name { get; set; }     //   VARFÖR GET; SET; ????!    public eftersom de ska kunnas ändras utanför klassen, i main...      PASCAL CASE
+        public string Name { get; set; }     //   VARFÖR GET; SET; (property)????!    public eftersom de ska kunnas ändras utanför klassen, i main...      PASCAL CASE
         public string LastName { get; set; }
         public string Alias { get; set; } 
         public string Email { get; set; }
@@ -52,15 +52,15 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             this.IsGhosted = isGhosted;
         }
 
-    public string getData()  // metod för att hämta och prestentera data om kontakten
-        {
-            return "data om kontakten";
-            //return "Namn: " + this.name + " Efternamn: " + this.lastName + " Alias: " + this.alias + " Email: " + this.email + " LinkedIn: " + this.linkedIn
-            //+ " Facebook: " + this.facebook + " Instagram: " + this.instagram + " Twitter: " + this.twitter + " Github: " + this.github
-            // + " Favoritmat: " + this.favFood + " Avskymat: " + this.leastFavFood + " Favoritdjur: " + this.favAnimal + " Favorit-filmgenre: " + this.favMovieGenre
-            // + " Blockad av dig?: " + this.isBlocked + " Ghostad av dig? : " + isGhosted;
+    //public string getData()  // metod för att hämta och prestentera data om kontakten
+    //    {
+    //        return "data om kontakten";
+    //        //return "Namn: " + this.name + " Efternamn: " + this.lastName + " Alias: " + this.alias + " Email: " + this.email + " LinkedIn: " + this.linkedIn
+    //        //+ " Facebook: " + this.facebook + " Instagram: " + this.instagram + " Twitter: " + this.twitter + " Github: " + this.github
+    //        // + " Favoritmat: " + this.favFood + " Avskymat: " + this.leastFavFood + " Favoritdjur: " + this.favAnimal + " Favorit-filmgenre: " + this.favMovieGenre
+    //        // + " Blockad av dig?: " + this.isBlocked + " Ghostad av dig? : " + isGhosted;
 
-        }
+    //    }
 
 
         //    public static int Count; // static täcker hela klassen, inte specifikt ett objekt. använd stor bokstav på namnet av en static variabel. denna räknar hur många personer som finns i chatup...
