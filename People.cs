@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ChatUp_Kontaktlista_Josefin_Persson
 {
-    class People //class som skapar enskilda kontakt-objekt      
+    public class People //class som skapar enskilda kontakt-objekt      
     {
-        public string Name { get; set; }     //   VARFÖR GET; SET; (property)????!    public eftersom de ska kunnas ändras utanför klassen, i main...      PASCAL CASE
+        public string Name { get; set; }
         public string LastName { get; set; }
-        public string Alias { get; set; } 
+        public string Alias { get; set; }
         public string Email { get; set; }
         public string LinkedIn { get; set; }
         public string Facebook { get; set; }
@@ -24,8 +24,6 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
 
         public bool IsBlocked = false;   //private?              // get; set; ????
         public bool IsGhosted = false;    //private?
-
-        //  public int age;   inte ett måste, lägg till senare...  födelsedagar osv..... timedate??
 
         public People() // en tom constructor... så att man ska kunna skapa komma kontakter.... men kontakter med kanske bara tre olika attrubut? skapa massa constructors?!?!
         {

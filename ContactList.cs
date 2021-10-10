@@ -30,71 +30,76 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
 
         public void Create()  // lägg till ny kontakt
         {
-            People newPerson = new People();
-            
-            Console.WriteLine("Du har valt att skapa en ny kontakt!");
-
-            Console.WriteLine("Ange namn:");
-            newPerson.Name = Console.ReadLine();
-
-            Console.WriteLine("Ange efternamn:");
-            newPerson.LastName = Console.ReadLine();
-
-            Console.WriteLine("Ange Alias:");
-            newPerson.Alias = Console.ReadLine();
-
-            Console.WriteLine("Ange Email:");
-            newPerson.Email = Console.ReadLine();
-
-            Console.WriteLine("Ange LinkedIn:");
-            newPerson.LinkedIn = Console.ReadLine();
-
-            Console.WriteLine("Ange Facebook:");
-            newPerson.Facebook = Console.ReadLine();
-
-            Console.WriteLine("Ange Instagram:");
-            newPerson.Instagram = Console.ReadLine();
-
-            Console.WriteLine("Ange Twitter:");
-            newPerson.Twitter = Console.ReadLine();
-
-            Console.WriteLine("Ange Github:");
-            newPerson.Github = Console.ReadLine();
-
-            Console.WriteLine("Ange favorit-maträtt:");
-            newPerson.FavFood = Console.ReadLine();
-
-            Console.WriteLine("Ange avsky-maträtt:");
-            newPerson.LeastFavFood = Console.ReadLine();
-
-            Console.WriteLine("Ange favoritdjur:");
-            newPerson.FavAnimal = Console.ReadLine();
-
-            Console.WriteLine("Ange favorit-filmgenre:");
-            newPerson.FavMovieGenre = Console.ReadLine();
-
-            Console.WriteLine("Ange om du vill blocka denna kontakt. Svara med 'ja' eller 'nej':");            // TODO: nej eller felsvar...
-            string inputIsBlockedString = Console.ReadLine();
-            newPerson.IsBlocked = false;
-            if(inputIsBlockedString == "ja")
+            private static void Create()
             {
-                newPerson.IsBlocked = true;
-            }
+                People newPerson = new People();
 
-            Console.WriteLine("Ange om du vill ghosta denna kontakt. Svara med 'ja' eller 'nej':");      // TODO: nej eller felsvar...
-            string inputIsGhostedString = Console.ReadLine();
-            newPerson.IsGhosted = false;
-            if (inputIsGhostedString == "ja")
-            {
-                newPerson.IsGhosted = true;
-            }
+                Console.WriteLine("------------------------------------------------");
+                Console.WriteLine("Du har valt att skapa en ny kontakt!");
+                Console.WriteLine("------------------------------------------------");
 
-            contactList.Add(newPerson);  // lägg till den nya personen i kontaktlistan                                                 FUNKAR EJ
+                Console.WriteLine("Ange namn:");
+                newPerson.Name = Console.ReadLine();
+
+                Console.WriteLine("Ange efternamn:");
+                newPerson.LastName = Console.ReadLine();
+
+                Console.WriteLine("Ange Alias:");
+                newPerson.Alias = Console.ReadLine();
+
+                Console.WriteLine("Ange Email:");
+                newPerson.Email = Console.ReadLine();
+
+                Console.WriteLine("Ange LinkedIn:");
+                newPerson.LinkedIn = Console.ReadLine();
+
+                Console.WriteLine("Ange Facebook:");
+                newPerson.Facebook = Console.ReadLine();
+
+                Console.WriteLine("Ange Instagram:");
+                newPerson.Instagram = Console.ReadLine();
+
+                Console.WriteLine("Ange Twitter:");
+                newPerson.Twitter = Console.ReadLine();
+
+                Console.WriteLine("Ange Github:");
+                newPerson.Github = Console.ReadLine();
+
+                Console.WriteLine("Ange favorit-maträtt:");
+                newPerson.FavFood = Console.ReadLine();
+
+                Console.WriteLine("Ange avsky-maträtt:");
+                newPerson.LeastFavFood = Console.ReadLine();
+
+                Console.WriteLine("Ange favoritdjur:");
+                newPerson.FavAnimal = Console.ReadLine();
+
+                Console.WriteLine("Ange favorit-filmgenre:");
+                newPerson.FavMovieGenre = Console.ReadLine();
+
+                Console.WriteLine("Ange om du vill blocka denna kontakt: (Y/N)");            // TODO: nej eller felsvar...
+                string inputIsBlockedString = Console.ReadLine();
+                newPerson.IsBlocked = false;
+                if (inputIsBlockedString == "Y")
+                {
+                    newPerson.IsBlocked = true;
+                }
+
+                Console.WriteLine("Ange om du vill ghosta denna kontakt: (Y/N)");      // TODO: nej eller felsvar...
+                string inputIsGhostedString = Console.ReadLine();
+                newPerson.IsGhosted = false;
+                if (inputIsGhostedString == "Y")
+                {
+                    newPerson.IsGhosted = true;
+                }
+
+                contactList.Add(newPerson);  // lägg till den nya personen i kontaktlistan    
+            }
 
             // återvänder automatiskt till menyn
         }
         //-----------------------------------------------------------------------------------------------------------
-        public void Read()  //öppna kontakt.... lista???
+        private static void Read(People person)
         {
             //lista på alla alias...
             foreach (var person in contactList)   //????????????
@@ -113,6 +118,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                 // contactList.Sort(alias);  //???
                 if (userInputAlias == person.Alias)
                 {
+                    Console.WriteLine("------------------------------------------------");
                     Console.WriteLine("Namn: " + person.Name);
                     Console.WriteLine("Efternamn: " + person.LastName);
                     Console.WriteLine("Alias: " + person.Alias);
@@ -128,8 +134,9 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                     Console.WriteLine("Favorit-filmgenre: " + person.FavMovieGenre);
                     Console.WriteLine("Blockad: " + person.IsBlocked);
                     Console.WriteLine("Ghostad: " + person.IsGhosted);
+                    Console.WriteLine("------------------------------------------------");
 
-                  }
+                }
             }
 
             // återvänd till menyn
@@ -154,6 +161,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                 // contactList.Sort(alias);  //???
                 if (userInputAlias == person.Alias)
                 {
+                    Console.WriteLine("------------------------------------------------");
                     Console.WriteLine("Namn: " + person.Name);
                     Console.WriteLine("Efternamn: " + person.LastName);
                     Console.WriteLine("Alias: " + person.Alias);
@@ -169,22 +177,23 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                     Console.WriteLine("Favorit-filmgenre: " + person.FavMovieGenre);
                     Console.WriteLine("Blockad: " + person.IsBlocked);
                     Console.WriteLine("Ghostad: " + person.IsGhosted);
+                    Console.WriteLine("------------------------------------------------");
                 }
             }
             Console.WriteLine("Ange den kategori du önskar ändra:");
             string userInputCategory = Console.ReadLine();
 
-            if(userInputCategory == contactList)         //??????????????????
-            {
-                Console.WriteLine("Ange den uppdaterade infon:");
-                string userUpdate = Console.ReadLine();
-                userUpdate = contactList.Add();
-            }
+            //if(userInputCategory == contactList)         //??????????????????
+            //{
+            //    Console.WriteLine("Ange den uppdaterade infon:");
+            //    string userUpdate = Console.ReadLine();
+            //    userUpdate = contactList.Add();
+            //}
 
-            foreach (var  in collection)
-            {
+            //foreach (var  in collection)
+            //{
 
-            }
+            //}
 
 
             // återvänd till menyn
@@ -213,19 +222,16 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             // återvänd till menyn
         }
         //-----------------------------------------------------------------------------------------------------------
-        public void List() // lista alla kontakter, lista kontakter som börjar på en specifik bokstav
+        private static void List()
         {
-            // foreach och cw listan
+            Console.WriteLine("------------------------------------------------");
+            Console.WriteLine("Här är en lista med alla " + contactList.Count + " personer i din kontaktlista.");
+            Console.WriteLine("------------------------------------------------");
 
-           // for (int i = contactList; i < 0; i++)
+            foreach (var person in contactList)
             {
-                
-                //Console.WriteLine(i);
+                Read(person);
             }
-
-
-            Console.WriteLine("Din kontaktlista består av " + contactList.Count() + " kontakter. Kanske någon är din drömprins...?"); // visa hur många som finns i kontaktlistan
-
             //fråga om bokstav, kolla att det är en bokstav, foreach alla med den bokstaven och cw...????
 
             // återvänd till menyn
