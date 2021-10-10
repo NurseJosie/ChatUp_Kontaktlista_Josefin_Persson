@@ -176,7 +176,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                     Console.WriteLine("Ghostad: " + contactList[i].IsGhosted);
                     Console.WriteLine("------------------------------------------------");
 
-                    Console.WriteLine("Ange nu det attribut du önksar uppdatera:");
+                    Console.WriteLine("Ange nu det attribut du önskar uppdatera:");
                     string userInputAttr = Console.ReadLine();
 
                     switch (userInputAttr.ToLower()) //switchar igenom alla attribut
@@ -269,7 +269,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                             break;
 
                         default:
-                            Console.WriteLine("Ange nu det attribut du önksar uppdatera:");
+                            Console.WriteLine("Ange nu det attribut du önskar uppdatera:");
                             userInputAttr = Console.ReadLine();
                             break;
                     }
