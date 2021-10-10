@@ -27,15 +27,17 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             Console.WriteLine("4- Ta bort kontakt");
             Console.WriteLine("5- Lista alla kontakter");
             Console.WriteLine("6- Lista alla som börjar på spec. bokstav");
-            Console.WriteLine("7- Avsluta programmet");
+            
 
             string userInput = Console.ReadLine();  // ta input och parsa den
             int userInputInt = 0;
             int.TryParse(userInput, out userInputInt);
 
-            if (userInputInt > 0 && userInputInt < 7)  //om det är sant att input INTE är en int????????????????????????????????????????????
+            if (userInputInt > 6 || userInputInt < 0)  
             {
-                Console.WriteLine("Välj ett alternativ mellan 1-7 från menyn!");
+                Console.WriteLine("Välj ett alternativ mellan 1-6 från menyn!");
+
+                Console.ReadKey();
             }
 
             switch (userInputInt)
@@ -63,6 +65,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                     break;
                 case 6:
                     //lista alla kontakter som börjar på en spec. bokstav
+                    contactList.ListByLetter();
                     break;
 
                 default:
