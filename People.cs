@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ChatUp_Kontaktlista_Josefin_Persson
 {
-    public class People //class som skapar enskilda kontakt-objekt      
+    public class People // klass som mall för enskilda people-objekt      
     {
-        public string Name;     // get set
+        public string Name;
         public string LastName;
         public string Alias;
         public string Email;
@@ -24,33 +21,29 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
         public bool IsBlocked;
         public bool IsGhosted;
 
-        public People() // en tom constructor... så att man ska kunna skapa komma kontakter.... men kontakter med kanske bara tre olika attrubut? skapa massa constructors?!?!
+        public People() // en tom constructor, behövs t.ex till Create-metoden då man först skapar en ny person helt utan attribut
         {
-            //tomt
         }
 
-        // constructor! alla värden sätts till default?
+        // constructor för att skapa nya personer med attribut
         public People(string name, string lastName, string alias, string email, string linkedIn, string facebook, string instagram, string twitter, string github, string favFood, string leastFavFood, string favAnimal, string favMovieGenre, bool isBlocked, bool isGhosted)
-                {   
-            this.Name = name;                   // this. används i constructorn för att syfta på objektet???          CAMEL CASE
-            this.LastName = lastName;
-            this.Alias = alias;
-            this.Email = email;
-            this.LinkedIn = linkedIn;
-            this.Facebook = facebook;
-            this.Instagram = instagram;
-            this.Twitter = twitter;
-            this.Github = github;
-            this.FavFood = favFood;
-            this.LeastFavFood = leastFavFood;
-            this.FavAnimal = favAnimal;
-            this.FavMovieGenre = favMovieGenre;
-            this.IsBlocked = isBlocked;
-            this.IsGhosted = isGhosted;
+        {
+            Name = name; 
+            LastName = lastName;
+            Alias = alias;
+            Email = email;
+            LinkedIn = linkedIn;
+            Facebook = facebook;
+            Instagram = instagram;
+            Twitter = twitter;
+            Github = github;
+            FavFood = favFood;
+            LeastFavFood = leastFavFood;
+            FavAnimal = favAnimal;
+            FavMovieGenre = favMovieGenre;
+            IsBlocked = isBlocked;
+            IsGhosted = isGhosted;
         }
-
-
-        
-}
+    }
 }
 

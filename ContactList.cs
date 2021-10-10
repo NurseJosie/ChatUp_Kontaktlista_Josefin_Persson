@@ -1,40 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;  // list<>
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;  // behövs till list<>
 
 namespace ChatUp_Kontaktlista_Josefin_Persson
 {
-    class ContactList  //class
+    class ContactList
     {
+        List<People> contactList;  // skapar en lista av People kallad contactList
 
-        List<People> contactList;  //listan skapas här
-
-        public ContactList() // constructor
+        public ContactList() // constructor, här skapar jag tre personer att använda till att testa programmet
         {
             contactList = new List<People>(); // gör en tom kontaktlista 
+
             People testPerson1 = new People("John", "Snow", "BastardBoi", "snow_01@gmail.com", "John S Harington", "John Snow Targaryen", "MrSnowyBastard01", "MrSnowyAtTheNightWatchTweets", "CoderOfTheWall", "Pannkakor", "Selleri", "En söt liten vargunge", "Romans", false, false);
             contactList.Add(testPerson1);
 
-            People testPerson2 = new People("Henry", "Cavill", "test", "superman_ur_hero@live.se", "HenryCavill", "Henry Kent of Rivia", "PicsOfDoggiesAndMeLiftingStuff", "WitcherWithWitt", "SuperCoderManOfRivia", "Vad som helst med PROTEIN till mina muskler", "Leverpastej", "Hund", "Action", false, true);
+            People testPerson2 = new People("Henry", "Cavill", "ButcherOfBlaviken", "superman_ur_hero@live.se", "HenryCavill", "Henry Kent of Rivia", "PicsOfDoggiesAndMeLiftingStuff", "WitcherWithWitt", "SuperCoderManOfRivia", "Vad som helst med PROTEIN till mina muskler", "Leverpastej", "Hund", "Action", false, true);
             contactList.Add(testPerson2);
 
             People testPerson3 = new People("Jason", "Momoa", "MySunAndStars", "khal_momoa@fishmail.com", "Arthur J Momoa", "Jason Momoa f.d. Curry", "FishManPhotos", "DrogoFunnyTweets", "ProgoDrogo", "Pizza", "Fisk", "Hästar och fiskar", "Skräckis", true, false);
             contactList.Add(testPerson3);
-
         }
 
+        //-----------------------------CRUDL-METODER(anropas i Menu-klassen)-------------------------------------
 
-        //-----------------------------CRUDL metoder som anropas i menu-switchen-------------------------------------
-
-
-        public void Create()
+        public void Create()// lägg till kontakt
         {
-            People newPerson = new People();
+            People newPerson = new People(); //skapa nytt People-objekt
 
             Console.WriteLine("------------------------------------------------");
-            Console.WriteLine("Du har valt att skapa en ny kontakt!");
+            Console.WriteLine("Du har valt att skapa en ny kontakt. Kul att du klickat med någon ny!");
             Console.WriteLine("------------------------------------------------");
 
             Console.WriteLine("Ange namn:");
@@ -83,6 +77,10 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             {
                 newPerson.IsBlocked = true;
             }
+            if (inputIsBlockedString == "N")
+            {
+                newPerson.IsBlocked = false;
+            }
 
             Console.WriteLine("Ange om du vill ghosta denna kontakt: (Y/N)");
             string inputIsGhostedString = Console.ReadLine();
@@ -91,6 +89,10 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             {
                 newPerson.IsGhosted = true;
             }
+            if (inputIsGhostedString == "N")
+            {
+                newPerson.IsGhosted = false;
+            }
 
             contactList.Add(newPerson);  // lägg till den nya personen i kontaktlistan    
         }
@@ -98,13 +100,12 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
         // återvänder automatiskt till menyn
 
         //-----------------------------------------------------------------------------------------------------------
-        public void Read()
+        public void Read() //visa vald kontakt
         {
-
-            foreach (var person in this.contactList)
+            foreach (var person in this.contactList) //lista alla alias
             {
                 Console.WriteLine("------------------------------------------------");
-                Console.WriteLine(person.Alias);
+                Console.WriteLine("Alias: " + person.Alias);
                 Console.WriteLine("------------------------------------------------");
             }
 
@@ -139,23 +140,23 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             }
         }
         //-----------------------------------------------------------------------------------------------------------
-        public void Update()
+        public void Update() // uppdatera attribut av vald kontakt
         {
             foreach (var person in this.contactList)
             {
                 Console.WriteLine("------------------------------------------------");
-                Console.WriteLine(person.Alias);
+                Console.WriteLine("Alias: " + person.Alias);
                 Console.WriteLine("------------------------------------------------");
             }
 
             Console.WriteLine("Ange alias på den du vill uppdatera:");
             string userInputAlias = Console.ReadLine();
-            Console.Clear();
+            Console.Clear(); // rensar konsollen, ser bättre ut så
 
-            for (int i = 0; i < contactList.Count; i++)
+            for (int i = 0; i < contactList.Count; i++) // for-loopar igenom hela kontaktlistan
             {
 
-                if (userInputAlias == contactList[i].Alias)
+                if (userInputAlias == contactList[i].Alias) // om det finns någon i listan med angivet alias, visa dess uppgifter
                 {
                     Console.WriteLine("------------------------------------------------");
                     Console.WriteLine("Namn: " + contactList[i].Name);
@@ -178,7 +179,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                     Console.WriteLine("Ange nu det attribut du önksar uppdatera:");
                     string userInputAttr = Console.ReadLine();
 
-                    switch (userInputAttr.ToLower())
+                    switch (userInputAttr.ToLower()) //switchar igenom alla attribut
                     {
                         case "namn":
                             Console.WriteLine("Ange namn:");
@@ -268,98 +269,90 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                             break;
 
                         default:
+                            Console.WriteLine("Ange nu det attribut du önksar uppdatera:");
+                            userInputAttr = Console.ReadLine();
                             break;
                     }
                 }
             }
-                Console.WriteLine("Tryck på valfri tagnent för att återgå till menyn...");
-                Console.ReadKey();
-
-                // återvänd till menyn
+            Console.WriteLine("Tryck på valfri tagnent för att återgå till menyn...");
+            Console.ReadKey();
         }
-            //-----------------------------------------------------------------------------------------------------------
-            public void Delete() // ta bort en av dina kontakter
-            {
+        //-----------------------------------------------------------------------------------------------------------
+        public void Delete() // ta bort vald kontakt
+        {
 
-                //lista på alla alias...
-                foreach (var person in this.contactList)
-                {
-                    Console.WriteLine("------------------------------------------------");
-                    Console.WriteLine(person.Alias);
-                    Console.WriteLine("------------------------------------------------");
-                }
-
-                Console.WriteLine("Ange alias på den du vill ta bort. Du kan även tömma din lista genom att skriva 'alla'.");
-                string userInputAlias = Console.ReadLine();
-
-                for (int i = 0; i < contactList.Count; i++)
-                {
-                    if (userInputAlias == contactList[i].Alias)
-                    {
-                        contactList.Remove(contactList[i]);
-                    }
-                }
-
-
-                //contactList.Remove(userInputAlias);   // alt. RemoveAt(index) rätt men ska ta int                                     // ta bort en kontakt 
-
-                //ta bort alla kontakter
-                if (userInputAlias == "alla")
-                {
-                    contactList.Clear();
-                }
-
-                // återvänd till menyn
-            }
-        
-            //-----------------------------------------------------------------------------------------------------------
-            public void List()
+            foreach (var person in this.contactList)
             {
                 Console.WriteLine("------------------------------------------------");
-                Console.WriteLine("Här är en lista med alla " + contactList.Count + " personer i din kontaktlista.");
+               Console.WriteLine("Alias: " + person.Alias);
                 Console.WriteLine("------------------------------------------------");
-
-                foreach (var person in contactList)
-                {
-                    Console.WriteLine("------------------------------------------------");
-                    Console.WriteLine("Namn: " + person.Name);
-                    Console.WriteLine("Efternamn: " + person.LastName);
-                    Console.WriteLine("Alias: " + person.Alias);
-                    Console.WriteLine("------------------------------------------------");
-                }
-
-                Console.WriteLine("Tryck på valfri tagnent för att återgå till menyn...");
-                Console.ReadKey();
-
             }
-            //-----------------------------------------------------------------------------------------------------------
-            // Lista på viss bokstav
-            public void ListByLetter()
+
+            Console.WriteLine("Ange alias på den du vill ta bort. Du kan även tömma din lista genom att skriva 'alla'.");
+            string userInputAlias = Console.ReadLine();
+
+            for (int i = 0; i < contactList.Count; i++)
+            {
+                if (userInputAlias == contactList[i].Alias)
+                {
+                    Console.WriteLine(contactList[i].Alias + " raderas, bye!");
+                    contactList.Remove(contactList[i]);
+
+                }
+            }
+
+            if (userInputAlias == "alla")
+            {
+                contactList.Clear(); //ta bort alla kontakter
+            }
+
+            Console.WriteLine("Tryck på valfri tagnent för att återgå till menyn...");
+            Console.ReadKey();
+        }
+        //-----------------------------------------------------------------------------------------------------------
+        public void List() // lista alla
+        {
+            Console.WriteLine("------------------------------------------------");
+            Console.WriteLine("Här är en lista med alla " + contactList.Count + " personer i din kontaktlista, ger en god chans att hitta kärleken!");
+            Console.WriteLine("------------------------------------------------");
+
+            foreach (var person in contactList)
             {
                 Console.WriteLine("------------------------------------------------");
-                Console.WriteLine("Ange en bokstav så visas alla vars namn börjar på den bokstaven...");
+                Console.WriteLine("Namn: " + person.Name);
+                Console.WriteLine("Efternamn: " + person.LastName);
+                Console.WriteLine("Alias: " + person.Alias);
                 Console.WriteLine("------------------------------------------------");
-
-                string userInputName = Console.ReadLine();
-
-                for (int i = 0; i < contactList.Count; i++)
-                {
-                    if (contactList[i].Name.ToLower().StartsWith(userInputName.ToLower()))
-                    {
-                        Console.WriteLine("------------------------------------------------");
-                        Console.WriteLine("Namn: " + contactList[i].Name);
-                        Console.WriteLine("Efternamn: " + contactList[i].LastName);
-                        Console.WriteLine("Alias: " + contactList[i].Alias);
-                        Console.WriteLine("------------------------------------------------");
-                    }
-                }
-
-
-                // återvänd till menyn
-                Console.WriteLine("Tryck på valfri tagnent för att återgå till menyn...");
-                Console.ReadKey();
             }
 
-        
+            Console.WriteLine("Tryck på valfri tagnent för att återgå till menyn...");
+            Console.ReadKey();
+
+        }
+        //-----------------------------------------------------------------------------------------------------------
+        public void ListByLetter() // Lista på viss bokstav
+        {
+            Console.WriteLine("------------------------------------------------");
+            Console.WriteLine("Ange en bokstav så visas alla vars namn börjar på den bokstaven...");
+            Console.WriteLine("------------------------------------------------");
+
+            string userInputName = Console.ReadLine();
+
+            for (int i = 0; i < contactList.Count; i++)
+            {
+                if (contactList[i].Name.ToLower().StartsWith(userInputName.ToLower()))
+                {
+                    Console.WriteLine("------------------------------------------------");
+                    Console.WriteLine("Namn: " + contactList[i].Name);
+                    Console.WriteLine("Efternamn: " + contactList[i].LastName);
+                    Console.WriteLine("Alias: " + contactList[i].Alias);
+                    Console.WriteLine("------------------------------------------------");
+                }
+            }
+
+            Console.WriteLine("Tryck på valfri tagnent för att återgå till menyn...");
+            Console.ReadKey();
+        }
     }
 }

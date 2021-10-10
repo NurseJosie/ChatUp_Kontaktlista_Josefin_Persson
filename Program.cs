@@ -6,13 +6,9 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
     {
         static void Main(string[] args)
         {
-            ContactList contactList = new ContactList();   //
-            Menu menu = new Menu();    //
-
-            while (true) //
-            {
-                menu.RunMenu(contactList); //anropa startmetoden som ska använda sig av listan med kontakter
-            }
+            ContactList contactList = new ContactList();   //instansierar kontaktlistan
+            Menu menu = new Menu();    //instansierar menyn
+            menu.RunMenu(contactList);  //kör meny-metoden
         }
     }
 }
