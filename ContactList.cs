@@ -9,7 +9,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
     class ContactList  //class
     {
 
-        List<People> contactList;  //lista... skapas här???????
+        List<People> contactList;  //listan skapas här
 
         public ContactList() // constructor
         {
@@ -17,7 +17,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             People testPerson1 = new People("John", "Snow", "BastardBoi", "snow_01@gmail.com", "John S Harington", "John Snow Targaryen", "MrSnowyBastard01", "MrSnowyAtTheNightWatchTweets", "CoderOfTheWall", "Pannkakor", "Selleri", "En söt liten vargunge", "Romans", false, false);
             contactList.Add(testPerson1);
 
-            People testPerson2 = new People("Henry", "Cavill", "ButcherOfBlaviken", "superman_ur_hero@live.se", "HenryCavill", "Henry Kent of Rivia", "PicsOfDoggiesAndMeLiftingStuff", "WitcherWithWitt", "SuperCoderManOfRivia", "Vad som helst med PROTEIN till mina muskler", "Leverpastej", "Hund", "Action", false, true);
+            People testPerson2 = new People("Henry", "Cavill", "test", "superman_ur_hero@live.se", "HenryCavill", "Henry Kent of Rivia", "PicsOfDoggiesAndMeLiftingStuff", "WitcherWithWitt", "SuperCoderManOfRivia", "Vad som helst med PROTEIN till mina muskler", "Leverpastej", "Hund", "Action", false, true);
             contactList.Add(testPerson2);
 
             People testPerson3 = new People("Jason", "Momoa", "MySunAndStars", "khal_momoa@fishmail.com", "Arthur J Momoa", "Jason Momoa f.d. Curry", "FishManPhotos", "DrogoFunnyTweets", "ProgoDrogo", "Pizza", "Fisk", "Hästar och fiskar", "Skräckis", true, false);
@@ -28,9 +28,8 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
         
         //-----------------------------CRUDL metoder som anropas i menu-switchen-------------------------------------
 
-        public void Create()  // lägg till ny kontakt
-        {
-            private static void Create()
+      
+            public void Create()
             {
                 People newPerson = new People();
 
@@ -44,7 +43,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                 Console.WriteLine("Ange efternamn:");
                 newPerson.LastName = Console.ReadLine();
 
-                Console.WriteLine("Ange Alias:");
+                Console.WriteLine("Ange alias:");
                 newPerson.Alias = Console.ReadLine();
 
                 Console.WriteLine("Ange Email:");
@@ -77,7 +76,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                 Console.WriteLine("Ange favorit-filmgenre:");
                 newPerson.FavMovieGenre = Console.ReadLine();
 
-                Console.WriteLine("Ange om du vill blocka denna kontakt: (Y/N)");            // TODO: nej eller felsvar...
+                Console.WriteLine("Ange om du vill blocka denna kontakt: (Y/N)");          
                 string inputIsBlockedString = Console.ReadLine();
                 newPerson.IsBlocked = false;
                 if (inputIsBlockedString == "Y")
@@ -85,7 +84,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                     newPerson.IsBlocked = true;
                 }
 
-                Console.WriteLine("Ange om du vill ghosta denna kontakt: (Y/N)");      // TODO: nej eller felsvar...
+                Console.WriteLine("Ange om du vill ghosta denna kontakt: (Y/N)");     
                 string inputIsGhostedString = Console.ReadLine();
                 newPerson.IsGhosted = false;
                 if (inputIsGhostedString == "Y")
@@ -97,12 +96,12 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             }
 
             // återvänder automatiskt till menyn
-        }
+        
         //-----------------------------------------------------------------------------------------------------------
-        private static void Read(People person)
+        public void Read()
         {
             //lista på alla alias...
-            foreach (var person in contactList)   //????????????
+            foreach (var person in this.contactList)   //????????????
             {
                // contactList.Sort(alias);  //???
                 Console.WriteLine(person);
@@ -222,7 +221,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             // återvänd till menyn
         }
         //-----------------------------------------------------------------------------------------------------------
-        private static void List()
+        public void List()
         {
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Här är en lista med alla " + contactList.Count + " personer i din kontaktlista.");
@@ -230,7 +229,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
 
             foreach (var person in contactList)
             {
-                Read(person);
+                //this.Read(person);
             }
             //fråga om bokstav, kolla att det är en bokstav, foreach alla med den bokstaven och cw...????
 

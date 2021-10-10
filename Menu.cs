@@ -29,10 +29,11 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             Console.WriteLine("6- Lista alla som börjar på spec. bokstav");
             Console.WriteLine("7- Avsluta programmet");
 
-            userInput = Console.ReadLine();  // ta input och parsa den
+            string userInput = Console.ReadLine();  // ta input och parsa den
+            int userInputInt = 0;
             int.TryParse(userInput, out userInputInt);
 
-            if (!isUserInputInt)  //om det är sant att input INTE är en int????????????????????????????????????????????
+            if (userInputInt > 0 && userInputInt < 7)  //om det är sant att input INTE är en int????????????????????????????????????????????
             {
                 Console.WriteLine("Välj ett alternativ mellan 1-7 från menyn!");
             }
@@ -42,23 +43,23 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                 case 1:
                     // skapa kontakt
                     // anropa metoder från contactlist...
-                    Create();
+                    contactList.Create();
                     break;
                 case 2:
                     //öppna kontakter
-                    Read();
+                    contactList.Read();
                     break;
                 case 3:
                     // redigera kontakter
-                    Update();
+                    contactList.Update();
                     break;
                 case 4:
                     // ta bort kontakt
-                    Delete();
+                    contactList.Delete();
                     break;
                 case 5:
                     // lista alla kontakter
-                    List();
+                    contactList.List();
                     break;
                 case 6:
                     //lista alla kontakter som börjar på en spec. bokstav
@@ -67,5 +68,6 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
                 default:
                     break;
             }
+        }
     }
 }
