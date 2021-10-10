@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChatUp_Kontaktlista_Josefin_Persson
 {
-    class People //class som skapar enskilda kontakt-objekt
+    class People //class som skapar enskilda kontakt-objekt      
     {
         public string Name { get; set; }     //   VARFÖR GET; SET; (property)????!    public eftersom de ska kunnas ändras utanför klassen, i main...      PASCAL CASE
         public string LastName { get; set; }

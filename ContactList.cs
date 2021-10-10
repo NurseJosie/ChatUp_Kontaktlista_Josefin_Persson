@@ -26,7 +26,7 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
         }
 
         
-        //-----------------------------CRUDL metoder som anropas i menu-------------------------------------
+        //-----------------------------CRUDL metoder som anropas i menu-switchen-------------------------------------
 
         public void Create()  // lägg till ny kontakt
         {
@@ -149,6 +149,43 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             string userInputAlias = Console.ReadLine();                            // userInputAlias... behöver man byta namn när den återanvänds i en annan metod?
 
 
+            foreach (var person in contactList)   //????????????
+            {
+                // contactList.Sort(alias);  //???
+                if (userInputAlias == person.Alias)
+                {
+                    Console.WriteLine("Namn: " + person.Name);
+                    Console.WriteLine("Efternamn: " + person.LastName);
+                    Console.WriteLine("Alias: " + person.Alias);
+                    Console.WriteLine("Email: " + person.Email);
+                    Console.WriteLine("LinkedIn: " + person.LinkedIn);
+                    Console.WriteLine("Facebook: " + person.Facebook);
+                    Console.WriteLine("Instagram: " + person.Instagram);
+                    Console.WriteLine("Twitter: " + person.Twitter);
+                    Console.WriteLine("Github: " + person.Github);
+                    Console.WriteLine("Favoritmat: " + person.FavFood);
+                    Console.WriteLine("Avsky-mat: " + person.LeastFavFood);
+                    Console.WriteLine("Favoritdjur: " + person.FavAnimal);
+                    Console.WriteLine("Favorit-filmgenre: " + person.FavMovieGenre);
+                    Console.WriteLine("Blockad: " + person.IsBlocked);
+                    Console.WriteLine("Ghostad: " + person.IsGhosted);
+                }
+            }
+            Console.WriteLine("Ange den kategori du önskar ändra:");
+            string userInputCategory = Console.ReadLine();
+
+            if(userInputCategory == contactList)         //??????????????????
+            {
+                Console.WriteLine("Ange den uppdaterade infon:");
+                string userUpdate = Console.ReadLine();
+                userUpdate = contactList.Add();
+            }
+
+            foreach (var  in collection)
+            {
+
+            }
+
 
             // återvänd till menyn
         }
@@ -165,10 +202,10 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
             Console.WriteLine("Ange alias på den du önskar ta bort från din kontaktlista... Var personen inte bra nog? Du förtjänar en drömprins!!! Du kan även välja att ta bort 'alla' kontakter...");
             string userInputAlias = Console.ReadLine();
 
-            contactList.Remove(userInputAlias);   // alt. RemoveAt(index) rätt men ska ta int
+          //  contactList.Remove(userInputAlias);   // alt. RemoveAt(index) rätt men ska ta int
 
             //ta bort alla kontakter
-            if (userInputDelete == "alla")
+            //if (userInputDelete == "alla")
             {
                 contactList.Clear();
             }
@@ -180,7 +217,14 @@ namespace ChatUp_Kontaktlista_Josefin_Persson
         {
             // foreach och cw listan
 
-            Console.WriteLine("Din kontaktlista består av " + contactList.Count() + " kontakter. Någon av de alla borde väl kunna duga...?"); // visa hur många som finns i kontaktlistan
+           // for (int i = contactList; i < 0; i++)
+            {
+                
+                //Console.WriteLine(i);
+            }
+
+
+            Console.WriteLine("Din kontaktlista består av " + contactList.Count() + " kontakter. Kanske någon är din drömprins...?"); // visa hur många som finns i kontaktlistan
 
             //fråga om bokstav, kolla att det är en bokstav, foreach alla med den bokstaven och cw...????
 
